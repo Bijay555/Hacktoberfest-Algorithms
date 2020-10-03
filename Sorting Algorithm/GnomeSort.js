@@ -1,5 +1,6 @@
 // Contributor: Bibek Kakati
 // Github: bibekkakati
+// Language: Javascript
 
 // A function to sort the given list using Gnome Sort
 function gnomeSort(arr, len) {
