@@ -1,6 +1,7 @@
+// Anusha Manthoju
+
 // java code for searching element,x in a given array using linear search algorithm.
 // If x is present in array ,program returns its location in array ,otherwise returns -1.
-
 
 import java.util.Scanner;
 public class LinearSearch
