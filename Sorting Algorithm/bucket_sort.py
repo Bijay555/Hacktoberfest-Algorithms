@@ -1,4 +1,4 @@
-#Github username: @webmidas
+#Github username (Name): @webmidas (Ashish Jha)
 
 # Python3 program to sort an array
 # using bucket sort
