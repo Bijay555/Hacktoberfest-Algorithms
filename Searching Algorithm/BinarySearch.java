@@ -1,4 +1,6 @@
+// Anusha Manthoju
 
+//Binary Search using Recursion
 import java.util.Scanner;
 public class BinarySearch
 {
@@ -35,11 +37,11 @@ public class BinarySearch
 			}
 			if(arr[mid] > key)
 			{
-				return binarySearch(arr, first, mid-1, key);
+				return binarySearch(arr, first, mid-1, key);		// search in left subarray
 			}
 			else
 			{
-				return binarySearch(arr, mid+1,last, key);
+				return binarySearch(arr, mid+1,last, key);		// search in right subarray
 			}
 		}
 		return -1;
