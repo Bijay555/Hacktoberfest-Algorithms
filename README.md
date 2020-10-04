@@ -13,7 +13,8 @@ Thanks for taking the time to contribute to this project. Before making PRs, ple
 - Place your code in right directory.
 - Give your files names that are relevant and meaningful for example : SubsetSum.py
 - If you will follow all the guidelines while contributing I'll be merging all your changes into the master branch of this project.
-- There should be your name inside your file in a comment at the beginning. 
+- There should be your name inside your file in a comment at the beginning.
+- Star the repo.
 - Guys follow me in github (optional)
 
 <h2>Hacktoberfest-2k20 bash</h2>
