@@ -1,3 +1,5 @@
+// David Konopatskyi
+
 using System;
 /*
     The insertion sorting algorithm works effectively when sorting small
