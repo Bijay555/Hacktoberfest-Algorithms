@@ -1,4 +1,22 @@
-#include "../Tree.h"
+/* Author: Surya Sidhartha S*/
+#include <bits/stdc++.h>
+#define val data
+
+using namespace std;
+
+//Structure of the node
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+    struct Node* nextRight;
+    struct Node* next;
+    Node(int x) {
+        data = x;
+        left = right = NULL;
+    }
+};
+
 
 /**
  * O(N) Time | O(1) Space
