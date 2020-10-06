@@ -1,3 +1,5 @@
+//lowest common ancestor by Shailesh Kumar in c language
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
