@@ -2,9 +2,15 @@
 
 using System.Linq;
 
+//A classic sorting solution for arrays that contain either 2 or 3 unique numbers
+//Example inputs
+//{1, 1, 1, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1}
+//{1, 3, 3, 2, 3, 2, 1, 3, 2, 3, 1, 2, 2, 1, 3, 1}
+
 public class DutchFlagSort
 {
 
+    //swaps two values
     private static void swap(int[] array, int index1, int index2)
     {
         int temp = array[index2];
