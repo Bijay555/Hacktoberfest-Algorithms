@@ -1,4 +1,4 @@
-//Name: Pedro Pererez
+//Name: Pedro Perez
 //GitHub: https://github.com/pedrousp
 
 #include<stdlib.h>
