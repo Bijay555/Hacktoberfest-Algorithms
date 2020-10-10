@@ -1,3 +1,6 @@
+//Name: Pedro Pererez
+//GitHub: https://github.com/pedrousp
+
 #include<stdlib.h>
 #include<stdio.h>
 
