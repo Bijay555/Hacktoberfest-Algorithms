@@ -1,0 +1,3 @@
+Use int of log base 10 of a number to find its digits
+
+Eg: int(log10(998)) gives 3
