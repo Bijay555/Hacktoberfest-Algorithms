@@ -47,11 +47,11 @@ size_t partition(int *arr, size_t left, size_t right) {
  */
 int kOrderStatistic(int *arr, size_t arrSize, size_t k) {
     assert(k < arrSize);
-
-    auto kExpected = partition(arr, arrSize);
+    size_t left = 0, right = arrSize;
+    auto kExpected = partition(arr, left, right);
     while (k != kExpected) {
-        kExpected < k ? partition(arr + kExpected + 1, arrSize - kExpected - 1, k - kExpected - 1)
-                             : kOrderStatistic(arr, kExpected, k);
+        kExpected = kExpected < k ? partition(arr, (left = kExpected + 1), right)
+                                  : partition(arr, left, kExpected);
     }
     return arr[k];
 };
@@ -60,7 +60,7 @@ int kOrderStatistic(int *arr, size_t arrSize, size_t k) {
 int main() {
     int arr[] = {5, 3, 0, 8, 7, 1, 6, 8, 15, 2, 6, 10, 16};
     std::for_each(arr, arr + (sizeof(arr) / sizeof(arr[0])), [](auto el) { std::cout << el << " "; });
-    std::cout << std::endl << "kOrderStatistic(4): " << kOrderStatistic(arr, sizeof(arr) / sizeof(arr[0]), 4)
+    std::cout << std::endl << "kOrderStatistic(11): " << kOrderStatistic(arr, sizeof(arr) / sizeof(arr[0]), 11)
               << std::endl;
     return 0;
 }
