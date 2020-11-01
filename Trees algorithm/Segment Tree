@@ -1,0 +1,60 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class segmenttree {
+        public static int constructst(int si,int ei,int[] arr,int [] tree,int i){
+            if(si==ei){
+                tree[i]=arr[si];
+                return arr[si];
+            }
+            int mid=si+(ei-si)/2;
+            tree[i]=Math.min(constructst(si,mid,arr,tree,2*i+1),constructst(mid+1,ei,arr,tree,2*i+2));
+            return tree[i];
+        }
+        public static int find(int fs,int fe,int si,int ei,int[] tree,int i){
+            if(fe<si||fs>ei)
+                return 0;
+            if(fs<=si&&fe>=ei)
+                return tree[i];
+            int mid=si+(ei-si)/2;
+            return Math.min(find(fs,fe,si,mid,tree,2*i+1),find(fs,fe,mid+1,ei,tree,2*i+2));
+        }
+        public static void update(int ii,int diff,int si,int se,int []tree,int i){
+            if(ii<si||ii>se) return;
+//            else if(ii>=si&&ii<=se)
+                tree[i]+=diff;
+            int mid=si+(se-si)/2;
+            if(se>si) {
+                update(ii, diff, si, mid, tree, 2 * i + 1);
+                update(ii, diff, mid + 1, se, tree, 2 * i + 2);
+            }
+        }
+        public static void main (String[] args) {
+       
+            Scanner s=new Scanner(System.in);
+            int a=s.nextInt();
+            for(int i=0;i<a;i++){
+                int b=s.nextInt();
+                int c=s.nextInt();
+                int arr[]=new int[b];
+                for(int j=0;j<b;j++)
+                    arr[j]=s.nextInt();
+                int tree[]=new int[4*b];
+                constructst(0,b-1,arr,tree,0);
+                for(int j=0;j<c;j++){
+                    String str= s.next();
+                    int d=s.nextInt();
+                    int e=s.nextInt();
+                    if(str.equals("G"))
+                        System.out.println(find(d,e,0,b-1,tree,0));
+                    else{
+                        update(d,e-arr[d],0,b-1,tree,0);
+                    }
+                }
+                for(int j=0;j<4*b;j++)
+                    System.out.print(tree[j]+" ");
+            }
+        }
+    }
+
