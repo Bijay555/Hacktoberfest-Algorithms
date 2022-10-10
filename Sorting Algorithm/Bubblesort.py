@@ -1,14 +1,32 @@
-#Name: Saral Karki
-#github username: Saral33
+# Name : Dakshay Ahuja
+# github username : dakshayahuja
 
-def bubbleSort(nlist):
-    for passnum in range(len(nlist)-1,0,-1):
-        for i in range(passnum):
-            if nlist[i]>nlist[i+1]:
-                temp = nlist[i]
-                nlist[i] = nlist[i+1]
-                nlist[i+1] = temp
+# Defining the bubble sort algo:
+def bubble_sort(items):
+    changes = passes = 0
+    last = len(items)
+    swapped = True
 
-nlist = [14,46,43,27,57,41,45,21,70]
-bubbleSort(nlist)
-print(nlist)
+    while swapped:
+        swapped = False
+        passes += 1
+        for j in range(1, last):
+            if items[j - 1] > items[j]:
+                items[j], items[j - 1] = items[j - 1], items[j]  # Swap
+                changes += 1
+                swapped = True
+                last = j
+
+    print(items)
+
+
+print("Welcome to a Bubble Sort Algorithm in Python!")
+
+# Calling the function:
+while True:
+    print("Enter as many numbers as you want.\nYou can choose between 0 and 9.\nLeave a space between each one")
+    numbers = input()
+    items = [int(num) for num in numbers.split() if num.isdigit()]
+    if items:
+        bubble_sort(items)
+    break

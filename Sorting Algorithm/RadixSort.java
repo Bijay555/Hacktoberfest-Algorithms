@@ -1,76 +1,57 @@
-// code for Radix sort in Java 
-//author: @garima1820
-
-import java.io.*;
-import java.util.*;
- 
-public class RadixSort {
- 
-    
-    static int getMax(int arr[], int n)        // A utility function to get maximum value in arr[]
-    {
-        int mx = arr[0];
-        for (int i = 1; i < n; i++)
-            if (arr[i] > mx)
-                mx = arr[i];
-        return mx;
-    }
- 
-    static void countSort(int arr[], int n, int exp)    // A function to do counting sort of arr[] according to the digit represented by exp.
-    {
-        int output[] = new int[n]; // output array
-        int i;
-        int count[] = new int[10];
-        Arrays.fill(count, 0);
- 
-        
-        for (i = 0; i < n; i++)     // Store count of occurrences in count[]
-            count[(arr[i] / exp) % 10]++;
- 
-        // Change count[i] so that count[i] now contains
-        // actual position of this digit in output[]
-        for (i = 1; i < 10; i++)
-            count[i] += count[i - 1];
- 
-        
-        for (i = n - 1; i >= 0; i--) {      // Build the output array
-            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
-            count[(arr[i] / exp) % 10]--;
-        }
- 
-        // Copy the output array to arr[], so that arr[] now
-        // contains sorted numbers according to curent digit
-        for (i = 0; i < n; i++)
-            arr[i] = output[i];
-    }
- 
-    // The main function to that sorts arr[] of size n using
-    // Radix Sort
-    static void radixsort(int arr[], int n)
-    {
-        // Find the maximum number to know number of digits
-        int m = getMax(arr, n);
- 
-        // Do counting sort for every digit. Note that
-        // instead of passing digit number, exp is passed.
-        // exp is 10^i where i is current digit number
-        for (int exp = 1; m / exp > 0; exp *= 10)
-            countSort(arr, n, exp);
-    }
- 
-     static void print(int arr[], int n)       // A utility function to print an array
-    {
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
-    }
- 
-    public static void main(String[] args)
-    {
-        int arr[] = {12,43,61,544,102,54 };
-        int n = arr.length;
-           
-          // Function Call
-        radixsort(arr, n);
-        print(arr, n);
-    }
+public class Radix_Sort {  
+public static void main(String[] args) {  
+        int i;  
+        Scanner sc = new Scanner(System.in);  
+        int[] a = {90,23,101,45,65,23,67,89,34,23};  
+        radix_sort(a);    
+        System.out.println("\n The sorted array is: \n");  
+        for(i=0;i<10;i++)  
+            System.out.println(a[i]);  
+    }  
+  
+    static int largest(inta[])  
+    {     
+        int larger=a[0], i;   
+        for(i=1;i<10;i++)  
+        {  
+            if(a[i]>larger)  
+            larger = a[i];  
+        }  
+        returnlarger;  
+    }  
+    static void radix_sort(inta[])  
+    {  
+        int bucket[][]=newint[10][10];  
+        int bucket_count[]=newint[10];  
+        int i, j, k, remainder, NOP=0, divisor=1, larger, pass;  
+        larger = largest(a);  
+        while(larger>0)  
+        {  
+            NOP++;  
+            larger/=10;  
+        }  
+        for(pass=0;pass<NOP;pass++) // Initialize the buckets  
+        {  
+            for(i=0;i<10;i++)  
+            bucket_count[i]=0;  
+            for(i=0;i<10;i++)  
+            {  
+                // sort the numbers according to the digit at passth place            
+                remainder = (a[i]/divisor)%10;  
+                bucket[remainder][bucket_count[remainder]] = a[i];  
+                bucket_count[remainder] += 1;  
+            }  
+            // collect the numbers after PASS pass  
+            i=0;  
+            for(k=0;k<10;k++)  
+            {  
+                for(j=0;j<bucket_count[k];j++)  
+                {  
+                    a[i] = bucket[k][j];  
+                    i++;  
+                }  
+            }  
+            divisor *= 10;  
+        }  
+    }  
 }
